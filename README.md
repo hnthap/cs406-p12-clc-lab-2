@@ -1,4 +1,4 @@
-# Lab 2
+# Image Retrieval using Histogram Matching (Lab 2)
 
 ## Introduction
 
@@ -21,3 +21,5 @@ pip install -r requirements.txt
 ```bash
 streamlit run app.py
 ```
+
+- To stop the server, press Ctrl + C.

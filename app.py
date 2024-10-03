@@ -76,7 +76,7 @@ def get_histograms(image_files: list[str],
             assert gray_image is not None, 'Failed to load image'
             assert len(gray_image.shape) == 2, 'Image is not grayscale'
             histogram = cv2.calcHist([gray_image], [0], None, [256], [0, 256])
-            histogram = histogram.flatten()
+            histogram = histogram.flatten() / (histogram.sum() + 1e-5)
             histogram_list.append(histogram)
         
         # Save the histograms to a JSON file and also return them
@@ -178,7 +178,7 @@ def get_k_closest_images(image, k, image_lists: list[str],
         assert image.ndim == 1, 'Image must be grayscale or RGB'
         gray_image = image
     histogram = cv2.calcHist([gray_image], [0], None, [256], [0, 256])
-    histogram = histogram.flatten()
+    histogram = histogram.flatten() / (histogram.sum() + 1e-5)
     distances = [
         np.linalg.norm(histogram - hist)
         for hist in histogram_list
