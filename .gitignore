@@ -1,0 +1,13 @@
+
+# Virtual environment directory
+
+.venv/
+
+# Streamlit flagged directory
+
+**/flagged
+
+# Large data
+
+data/
+histograms.json
